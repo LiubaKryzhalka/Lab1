@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+  check_status:
+    image: 'checker'
+    build: 
+       context: .
+       dockerfile: ./Dockerfile
+    volumes:
+      - ./log:/log
